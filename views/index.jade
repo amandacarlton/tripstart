@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  form(action="/", method="post")
+    label(for="price") Send me anywhere under....
+    input(type="number" id="price" name='price')
+    input(type="submit" value="Up Up and Away")
+  p
+  a(href="/parking/info")
+   h1 Parking
+  
+    

@@ -1,0 +1,11 @@
+extends layout
+
+block content
+ div.main
+  for item in info
+   div.location 
+    a(href=item.Url)
+     p=item.DestinationCity
+    p=item.AverageMaxTemp
+    p=item.AverageMinTemp
+    p=item.AveragePrice

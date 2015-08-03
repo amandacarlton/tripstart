@@ -1,0 +1,16 @@
+extends parkinglayout
+
+body.park
+ block content
+  div.main
+    h1 Where would you like to find parking?
+    form(action="/parking", method="post")
+      label(for="address") Address
+      input(type="input" id="address" name="address")
+      //- label(for="date") Date
+      //- input(type="date" id="date" name="date")
+      //- label(for="stime") Start Time
+      //- input(type="time" id="stime" name="stime")
+      //- label(for="etime") End Time
+      //- input(type="time" id="etime" name="etime")
+      input(type="submit" value="Find Parking")

@@ -1,0 +1,17 @@
+
+h1{
+  color:#023436;
+}
+
+body{
+  width: 100%;
+}
+
+.main{
+  height: 200px;
+  width:600px;
+  margin: 0 auto;
+  border: 1px solid black;
+  margin-top: 40px;
+  text-align: center;
+}
