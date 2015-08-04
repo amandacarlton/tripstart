@@ -1,0 +1,22 @@
+extends parkinglayout
+
+body.park
+ block content
+  div.main
+    h1 Rent a Car
+    form(action="/rental", method="post")
+      label(for="address") Pick Up Address
+      input(type="input" id="address" name="address")
+      p
+      label(for="pdate") Pick Up Date
+      input(type="date" id="pdate" name="pdate")
+      p
+      label(for="edate") Drop Off Date
+      input(type="date" id="edate" name="edate")
+      p
+      label(for="stime") Start Time
+      input(type="time" id="stime" name="stime")
+      p
+      label(for="etime") End Time
+      input(type="time" id="etime" name="etime")
+      input(type="submit" value="Find Car")

@@ -1,0 +1,21 @@
+extends parkinglayout
+
+block content
+ 
+ div.maincar
+   h1 Your Car Results
+   for item in info
+    div.car
+     p 
+     Strong Car Type: 
+     =item.CarTypeCode
+     p
+     Strong Daily Rate: 
+     =item.DailyRate
+     p
+     Strong Total: 
+     =item.TotalPrice
+   
+   
+   
+  
