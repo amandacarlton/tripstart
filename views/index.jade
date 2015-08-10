@@ -1,8 +1,13 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  form(action="/login", method="post")
+    label(for="email") Login
+    input(type="text" id="email" name="email")
+    label(for="password") Password
+    input(type="text" id="password" name="password")
+    input(type="submit" value="Login")
+  a(href="/signup") Sign-Up
   form(action="/", method="post")
     label(for="price") Send me anywhere under....
     input(type="number" id="price" name='price')
@@ -13,4 +18,7 @@ block content
   p
   a(href="/rental")
    h1 Car Rental
+  p
+  a(href="/hotel")
+   h1 Hotels
     

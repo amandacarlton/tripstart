@@ -1,0 +1,26 @@
+extends parkinglayout
+
+body.park
+ block content
+  div.main
+    h1 Find a Hotel
+    form(action="/hotel", method="post")
+      label(for="address") Destination
+      input(type="input" id="address" name="address")
+      p
+      label(for="pdate") Check-in Date
+      input(type="date" id="pdate" name="pdate")
+      p
+      label(for="edate") Check-out Date
+      input(type="date" id="edate" name="edate")
+      p
+      label(for="rooms") Number of Rooms
+      input(type="number" id="rooms" name="rooms")
+      p
+      label(for="adults") Adults
+      input(type="number" id="adults" name="adults")
+      p
+      label(for="kids") Children
+      input(type="number" id="kids" name="kids")
+      p
+      input(type="submit" value="Find Hotel")

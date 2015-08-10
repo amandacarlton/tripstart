@@ -3,7 +3,7 @@ var router = express.Router();
 var Hotwire = require('hotwire');
 var hotwire = new Hotwire('g4hyhkdzkw2per9j7qj4sd9e');
 var unirest = require('unirest');
-var routefunction = require("../lib/routefunction.js")
+var routefunction = require("../lib/routefunction.js");
 /* GET home page. */
 
 
@@ -34,7 +34,7 @@ router.get("/parking/info", function(req, res, next){
 router.post("/parking", function(req, res, next){
   unirest.get('http://api.parkwhiz.com/search/?destination='+req.body.address+'&key=ff13aa2d2794c136803139ed99ab329f')
 .end(function (result) {
-  res.render('parking', {result:result.body.parking_listings});
+  res.redirect('parking', {result:result.body.parking_listings});
 
 });
 });
@@ -50,11 +50,34 @@ router.post("/rental", function (req, res, next){
   //console.log(start);
   hotwire.rentalCarSearch({format: 'json', dest: req.body.address, startdate: start, enddate: end, pickuptime: req.body.stime, dropofftime: req.body.etime}, function (err, response, body) {
     var data = JSON.parse(body);
-    console.log(data.Result[5].CarTypeCode);
+    console.log(data);
   var type = routefunction.cartype(data.Result);
   console.log(type);
     res.render("rental", {info:type});
 });
 });
+
+router.get("/hotel", function(req, res, next){
+  res.render("hotelselect");
+});
+
+router.post("/hotel", function (req, res, next){
+  var start = routefunction.date(req.body.pdate);
+  var end = routefunction.date(req.body.edate);
+  //console.log(start);
+  hotwire.hotelSearch({format: 'json', dest: req.body.address, rooms: req.body.rooms, adults: req.body.adults, children: req.body.kids, startdate: start, enddate: end}, function (err, response, body) {
+    var data = JSON.parse(body);
+    console.log(data);
+    res.render('hotel');
+});
+});
+
+// router.get("/hotel/deals", function (req, res, next){
+//   hotwire.hotelDeals({format: 'json', dest: 'Chicago'}, function (err, response, body) {
+//     var data = JSON.parse(body);
+//     console.log(data);
+//     res.render('hotel');
+// });
+// });
 
 module.exports = router;
