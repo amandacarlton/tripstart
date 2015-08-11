@@ -4,6 +4,7 @@ var Hotwire = require('hotwire');
 var hotwire = new Hotwire('g4hyhkdzkw2per9j7qj4sd9e');
 var unirest = require('unirest');
 var routefunction = require("../lib/routefunction.js");
+var use;
 /* GET home page. */
 
 
